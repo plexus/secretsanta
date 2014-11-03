@@ -45,3 +45,14 @@ end
 class ElfMapper < Yaks::Mapper
   attributes :name, :wishlist
 end
+
+get '/' do
+
+end
+
+get '/groups/:id' do
+  YAKS.call(Group[params[:id]])
+end
+
+post '/groups' do
+end

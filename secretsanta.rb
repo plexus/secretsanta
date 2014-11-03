@@ -1,6 +1,7 @@
 require 'sequel'
 require 'sinatra'
 require 'yaks'
+require 'yaks-html'
 
 DB   = Sequel.connect('sqlite://secretsanta.db')
 YAKS = Yaks.new
@@ -51,7 +52,7 @@ get '/' do
 end
 
 get '/groups/:id' do
-  YAKS.call(Group[params[:id]])
+  YAKS.call(Group[params[:id]], env: env)
 end
 
 post '/groups' do

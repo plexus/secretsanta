@@ -1,7 +1,9 @@
 require 'sequel'
+require 'sinatra'
+require 'yaks'
 
-DB = Sequel.connect('sqlite://secretsanta.db')
-
+DB   = Sequel.connect('sqlite://secretsanta.db')
+YAKS = Yaks.new
 
 def create_tables
   DB.create_table(:groups) do
@@ -15,6 +17,22 @@ def create_tables
     String :email
     String :url_key
     foreign_key :recipient_id, :elves
-    String :whishlist
+    String :wishlist
   end
+end
+
+class Group < Sequel::Model
+end
+
+class Elf < Sequel::Model
+end
+
+class GroupMapper < Yaks::Mapper
+  attributes :id
+
+  has_many :elves
+end
+
+class ElfMapper < Yaks::Mapper
+  attributes :name, :wishlist
 end

@@ -21,10 +21,19 @@ def create_tables
   end
 end
 
+def create_some_elves
+  group = Group.create
+  %w( John Paul George Ringo ).each do |elf|
+    Elf.create(group_id: group.id)
+  end
+end
+
 class Group < Sequel::Model
+  one_to_many :elves
 end
 
 class Elf < Sequel::Model
+  many_to_one :group
 end
 
 class GroupMapper < Yaks::Mapper

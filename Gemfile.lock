@@ -1,3 +1,31 @@
+PATH
+  remote: /home/arne/github/hexp
+  specs:
+    hexp (0.4.2)
+      adamantium (~> 0.2)
+      concord (~> 0.0)
+      equalizer (~> 0.0)
+      nokogiri (~> 1.6)
+      sass (~> 3.2.19)
+
+PATH
+  remote: /home/arne/github/yaks/yaks
+  specs:
+    yaks (0.6.2)
+      adamantium (~> 0.2.0)
+      anima (~> 0.2.0)
+      concord (~> 0.1.4)
+      inflection (~> 1.0)
+      rack-accept (~> 0.4.5)
+      uri_template (~> 0.6.0)
+
+PATH
+  remote: /home/arne/github/yaks/yaks-html
+  specs:
+    yaks-html (0.6.2)
+      hexp (>= 0.4)
+      yaks (= 0.6.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,11 +41,6 @@ GEM
       adamantium (~> 0.2.0)
       equalizer (~> 0.0.9)
     equalizer (0.0.9)
-    hexp (0.4.1)
-      adamantium (~> 0.2)
-      equalizer (~> 0.0)
-      nokogiri (~> 1.6)
-      sass (~> 3.2.19)
     ice_nine (0.11.0)
     inflection (1.0.0)
     memoizable (0.4.2)
@@ -40,23 +63,14 @@ GEM
     thread_safe (0.3.4)
     tilt (1.4.1)
     uri_template (0.6.0)
-    yaks (0.6.1)
-      adamantium (~> 0.2.0)
-      anima (~> 0.2.0)
-      concord (~> 0.1.4)
-      inflection (~> 1.0)
-      rack-accept (~> 0.4.5)
-      uri_template (~> 0.6.0)
-    yaks-html (0.6.1)
-      hexp (>= 0.4)
-      yaks (= 0.6.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  hexp!
   sequel
   sinatra
   sqlite3
-  yaks
-  yaks-html
+  yaks!
+  yaks-html!

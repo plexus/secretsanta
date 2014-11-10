@@ -38,7 +38,6 @@
     (assoc (hal->Resource subresource) :rel rel)
     (hal->ResourceList rel subresource)))
 
-
 (defn hal->Control [[name control]]
   (map->Control (assoc control :name name)))
 
@@ -88,45 +87,10 @@
 
 (def request (wrap-request http-core/request))
 
-(defn delete
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :delete :url url})))
-
 (defn get
   "Like #'request, but sets the :method and :url as appropriate."
   [url & [req]]
   (request (merge req {:method :get :url url})))
-
-(defn head
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :head :url url})))
-
-(defn move
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :move :url url})))
-
-(defn options
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :options :url url})))
-
-(defn patch
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :patch :url url})))
-
-(defn post
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :post :url url})))
-
-(defn put
-  "Like #'request, but sets the :method and :url as appropriate."
-  [url & [req]]
-  (request (merge req {:method :put :url url})))
 
 (defn get-form [resource name]
   (first (filter #(= (:name %) name) (:controls resource))))

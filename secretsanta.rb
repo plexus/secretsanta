@@ -50,11 +50,7 @@ class Elf < Sequel::Model
   many_to_one :group
 end
 
-class GroupMapper < Yaks::Mapper
-  attributes :id
-
-  has_many :elves
-
+class RootMapper < Yaks::Mapper
   control :create do
     method 'POST'
     href '/groups'
@@ -68,6 +64,11 @@ class GroupMapper < Yaks::Mapper
   end
 end
 
+class GroupMapper < Yaks::Mapper
+  attributes :id
+  has_many :elves
+end
+
 class ElfMapper < Yaks::Mapper
   attributes :name, :wishlist
 end
@@ -78,7 +79,13 @@ before do
   headers 'Access-Control-Allow-Methods' => 'GET,POST,PUT,DELETE,OPTIONS'
 end
 
+# TODO: Serve up the frontend
 get '/' do
+end
+
+# Starting point for the API
+get '/api' do
+  yaks nil, mapper: RootMapper
 end
 
 get '/groups/:id' do

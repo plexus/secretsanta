@@ -85,7 +85,7 @@ end
 
 # Starting point for the API
 get '/api' do
-  yaks nil, mapper: RootMapper
+  yaks :root, mapper: RootMapper
 end
 
 get '/groups/:id' do

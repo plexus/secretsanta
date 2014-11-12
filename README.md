@@ -12,7 +12,7 @@ create_tables
 
 This will create `secretsanta.db`
 
-and then
+and then exit and restart the irb and type
 
 ``` ruby
 create_some_elves
